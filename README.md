@@ -9,5 +9,9 @@ set. The algorithm is also suitable for large data sets, being faster than other
 hierarchical algorithms). This can be proved by considering K-means time complexity, which is
 linear, compared to other clustering methods
 
-| Clustering Method | Time Complexity | Notations |
-| K-means | O(n*k*l) = O(n) | n- no. of samples, k = no. of clusters, l= no. of iterations |
+| Clustering Method | Time Complexity | Notations  |
+| :-----------: | :------------: | :------------: |
+| K-means       |    O(n*k*l) = O(n)      |n = no. of samples, k = no. of clusters, l = no. of iterations|
+|Hierarchical      |    O(n^3)     |         |
+|The Expectation Maximization     |    O(m*n^3)     |      m = no. of iterations, n = no. of parameters   |
+|K-medoid     |    O(n^2)     |         |
