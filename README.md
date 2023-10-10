@@ -1,41 +1,8 @@
 # K-Means_Clustering_Project
-Within this report we will be discussing clustering and more specifically, K-means clustering and the use of this model for image compression. K-means clustering is used in order “to get an intuition about the structure of the data,” and is an unsupervised learning algorithm because we do not know the labels of the training data. “The goal is to therefore learn to detect patterns in the data and exploit them.”. This works by “following a simple procedure of classifying a given data set into a number of k-clusters.”. This is so we can understand more about the data provided, by separating it into k different groups. This report will also include a discussion on the benefits and shortcomings of K-means clustering, along with a pseudocode, description of the model and how it works. We will also include an application of K-means clustering to compress an image to k=16 colours through the implementation of two R codes; one which performs K-means with one iteration
-and the second which converges.
-
-## Benefits and Shortcomings of K-means Clustering
-### Advantages
-K-Means is known for being a relatively simple algorithm, not too complex to implement. This
-is because it uses only a distance-calculation method (Euclidean distance usually) and the data
-set. The algorithm is also suitable for large data sets, being faster than other methods (such as
-hierarchical algorithms). This can be proved by considering K-means time complexity, which is
-linear, compared to other clustering methods
-
-| Clustering Method | Time Complexity | Notations  |
-| :-----------: | :------------: | :------------: |
-| K-means       |    O(n*k*l) = O(n)      |n = no. of samples, k = no. of clusters, l = no. of iterations|
-|Hierarchical      |    O(n^3)     |         |
-|The Expectation Maximization     |    O(m*n^3)     |      m = no. of iterations, n = no. of parameters   |
-|K-medoid     |    O(n^2)     |         |
-<figure 1>
-  <figcaption>Figure 1: Time Complexity of Clustering Methods </figcaption>
-</figure>
-
-### Disadvantages
-The K-means algorithm is sensitive when it comes to picking the initial clusters, sometimes leading to the variance of the outcome being high (e.g.: one cluster might include too many data points, while another cluster less). Thus, the algorithm needs to be performed again in order to obtain a better variance. The idea behind this is that even though K-means always converges, it only
-reaches a local minimum . Thus, it might never reach a global minimum because considering
-all the possible combinations of initial clusters is time consuming. This is another disadvantage as the results might be wrong due to the dependence on the initial clusters. For example, the cen-
-troids are too close to each other. Therefore, after several iterations, the algorithm could reach a state which completely contradicts the apparent clusters. To avoid this, there can be some condi-
-tions we can have on choosing the initial centroids, such as a minimum distance between the clusters.
-
-Another disadvantage is that it can be difficult to pick the number of clusters. This is an assumption of the K-means algorithm that might, or might not, prove successful. Picking a too large or a too small number of clusters might fail to accomplish the whole objective of the algorithm: to gather data points with similar characteristics, analyse them and use them to make future predictions. For example, if we have a data set containing characteristics of a virus and assuming there are only three variants of the virus, when there are actually four.
-Therefore prior knowledge of the dataset such as the number of clusters is needed to be most
-accurate as we can choose the wrong k and get inaccurate results. To choose k, we can use the
-Elbow method. This method calculates the k-means algorithm with different values of k and looks
-for an abrupt change in the results. However it may not always work for datasets that are not very clustered and are evenly distributed. The curve in this case will be smooth and it will be difficult to decide on what k to choose. Other alternative methods are available such as the silhouette coefficient of the gap statistic.
+I have included a R file of my K-Means function to compress an image to k=16 colours.
 
 ## Description of the Model
-K-Means clustering is an unsupervised learning algorithm characterized by its iterative process. It begins with an unlabeled dataset as input. Additionally, we define a set of k means \(m_1, m_2, ..., m_k\) which represent the initial centroids. These centroids determine the number of "clusters" required.
-
+K-Means clustering is an unsupervised learning algorithm characterized by its iterative process. It begins with an unlabeled dataset as input. Additionally, we define a set of points \(m_1, m_2, ..., m_k\) which represent the initial centroids. These centroids determine the number of "clusters" required.
 Each data point is then assigned to the cluster with the nearest centroid, calculated using Euclidean distance. The Euclidean distance between two points, \(p\) and \(q\), on a real line is defined as:
 
 d(p, q) = sqrt((p - q)^2)
@@ -74,8 +41,7 @@ This process continues iteratively, recalculating the centroids for the observat
 9. **Return** `km`.
 
 ## Clustering As An Image Compression Tool
-Image compression is an application of the K-means algorithm, used to reduce the dimension of an
-image and its storage space, without excessively deteriorating it. It works by taking the pixels of an image and applying the K-means algorithm to find k colours and assigning the data points(pixels) to these.
+Image compression is an application of the K-means algorithm, used to reduce the dimension of an image and its storage space, without excessively deteriorating it. It works by taking the pixels of an image and applying the K-means algorithm to find k colours and assigning the data points(pixels) to these.
 
 ![image](https://github.com/jjesss/K-Means_Clustering_Project/assets/77901330/51d38965-ec9c-4af2-83fe-9c82797826d0)
 
